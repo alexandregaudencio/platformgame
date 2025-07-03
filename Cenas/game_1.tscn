@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cs6r6ppujp7i6"]
+
+[ext_resource type="Texture2D" uid="uid://qsb51083vpvh" path="res://Arte/characters/character_beige_idle.png" id="1_1stih"]
+[ext_resource type="Script" uid="uid://de6ia7wy5aqjf" path="res://Cenas/player.gd" id="1_ni1i1"]
+[ext_resource type="Texture2D" uid="uid://b5gyvmt2d7hlv" path="res://Arte/Backgrounds/background_clouds.png" id="1_wn2qo"]
+[ext_resource type="Script" uid="uid://c6x4yops1pdjl" path="res://Scripts/CameraController.gd" id="3_cxdy0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxdy0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1stih")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ni1i1"]
+radius = 34.0
+height = 98.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ni1i1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxdy0"]
+size = Vector2(1540.5, 149)
+
+[node name="game 1" type="Node2D"]
+
+[node name="BackgroundClouds" type="Sprite2D" parent="."]
+position = Vector2(531.25, 324.25)
+scale = Vector2(7.9668, 3.56055)
+texture = ExtResource("1_wn2qo")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_ni1i1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_cxdy0")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(1, 16)
+shape = SubResource("CapsuleShape2D_ni1i1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_ni1i1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(674.75, 721)
+shape = SubResource("RectangleShape2D_cxdy0")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("alvo")]
+script = ExtResource("3_cxdy0")
+alvo = NodePath("../Player")
+velocidade = 3
+positionExtra = Vector2(0, -100)
