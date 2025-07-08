@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cs6r6ppujp7i6"]
+[gd_scene load_steps=15 format=4 uid="uid://cs6r6ppujp7i6"]
 
 [ext_resource type="Script" uid="uid://de6ia7wy5aqjf" path="res://Cenas/player.gd" id="1_ni1i1"]
 [ext_resource type="Texture2D" uid="uid://b5gyvmt2d7hlv" path="res://Arte/Backgrounds/background_clouds.png" id="1_wn2qo"]
@@ -8,6 +8,7 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_encla"]
 texture = ExtResource("4_wn2qo")
 texture_region_size = Vector2i(8, 8)
+use_texture_padding = false
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -163,17 +164,49 @@ texture_region_size = Vector2i(8, 8)
 tile_size = Vector2i(8, 8)
 sources/1 = SubResource("TileSetAtlasSource_encla")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cxdy0"]
-load_path = "res://.godot/imported/character_beige_idle.png-e90a5f719f016c9905e429e69a2ce8be.ctex"
+[sub_resource type="AtlasTexture" id="AtlasTexture_svay0"]
+atlas = ExtResource("4_wn2qo")
+region = Rect2(24, 56, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn2qo"]
+atlas = ExtResource("4_wn2qo")
+region = Rect2(0, 56, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_encla"]
+atlas = ExtResource("4_wn2qo")
+region = Rect2(8, 56, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vb2o"]
+atlas = ExtResource("4_wn2qo")
+region = Rect2(16, 56, 8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cxdy0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_cxdy0")
+"texture": SubResource("AtlasTexture_svay0")
+}],
+"loop": true,
+"name": &"Dath",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn2qo")
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_encla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vb2o")
+}],
+"loop": true,
+"name": &"Walk",
 "speed": 5.0
 }]
 
@@ -200,6 +233,9 @@ scale = Vector2(7.9668, 3.56055)
 texture = ExtResource("1_wn2qo")
 
 [node name="Player" type="CharacterBody2D" parent="."]
+motion_mode = 1
+floor_stop_on_slope = false
+floor_block_on_wall = false
 script = ExtResource("1_ni1i1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
