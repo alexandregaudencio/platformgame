@@ -11,8 +11,11 @@ const JUMP_VELOCITY = -400.0
 func _physics_process(delta: float) -> void:
 	var x :=  Input.get_axis("ui_left", "ui_right")
 	var y :=  Input.get_axis("ui_up", "ui_down")
-	velocity.x = move_toward(velocity.x, x*SPEED, ACCELERATION*delta)
-	velocity.y = move_toward(velocity.y, y*SPEED, ACCELERATION*delta)
+	var dir := Vector2(x,y).normalized()
+	
+	#velocity.x = move_toward(velocity.x, dir.x*SPEED, ACCELERATION*delta)
+	#velocity.y = move_toward(velocity.y, dir.y*SPEED, ACCELERATION*delta)
+	velocity = velocity.move_toward(dir*SPEED, ACCELERATION*delta)
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("Atirar"):

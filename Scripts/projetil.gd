@@ -1,7 +1,4 @@
 extends RigidBody2D
-
-
-
 @export var speed = 700
 @export var alvo: Grupos
 var direction: Vector2
@@ -10,7 +7,6 @@ enum Grupos {
 	Inimigos,
 	Player
 }
-
 
 func _ready() -> void:
 	var forward = Vector2.RIGHT.rotated(rotation)
@@ -29,6 +25,11 @@ func SetPosition(position:Vector2):
 	
 
 
-func _on_body_entered(body: Node) -> void:
+#func _on_body_entered(body: Node) -> void:
+	#print("area entered")
+	#print(body.is_in_group(str(alvo)))
+ 
+
+func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
 	print("area entered")
 	print(body.is_in_group(str(alvo)))

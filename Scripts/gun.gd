@@ -7,7 +7,7 @@ func _process(delta: float) -> void:
 	rotation = dir.angle()
 	
 	var angle = rad_to_deg(dir.angle())
-	if(angle > 90):
+	if(angle > 90 or angle < -90):
 		flip_v = true
 	else:
 		flip_v = false
