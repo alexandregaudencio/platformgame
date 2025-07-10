@@ -1,4 +1,4 @@
-extends Camera2D
+extends Node2D
 
 @export var alvo: Node2D
 @export var velocidade = 20
