@@ -1,19 +1,12 @@
 extends RigidBody2D
 @export var speed = 700
-@export var alvo: Grupos
+@export var alvo = ""
 var direction: Vector2
 
-enum Grupos {
-	Inimigos,
-	Player
-}
 
-func _ready() -> void:
-	var forward = Vector2.RIGHT.rotated(rotation)
-	SetDirection(forward)
-	
-	
-	
+#func _ready() -> void:
+	#var forward = Vector2.RIGHT.rotated(rotation)
+	#SetDirection(forward)
 	
 func SetDirection( direction:Vector2):
 	self.direction = direction
@@ -22,14 +15,12 @@ func SetDirection( direction:Vector2):
 func SetPosition(position:Vector2):
 	self.position = position
 	
-	
+
+func Destruir():
+	queue_free()
 
 
-#func _on_body_entered(body: Node) -> void:
-	#print("area entered")
-	#print(body.is_in_group(str(alvo)))
- 
-
-func _on_body_shape_entered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
-	print("area entered")
-	print(body.is_in_group(str(alvo)))
+func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if body.is_in_group(alvo):
+		print("é do alvo")
+	Destruir()

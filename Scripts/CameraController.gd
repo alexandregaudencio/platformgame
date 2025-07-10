@@ -7,7 +7,6 @@ extends Node2D
 func _process(delta: float) -> void:
 	seguir(delta)
 
-
 func seguir(delta):
 	#position = lerp(position,alvo.position + positionExtra,velocidade*delta)
 	position = alvo.position

@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
-const ACCELERATION = 1000
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var ACCELERATION = 2000
+@export var SPEED = 300.0
 
 @export var projectile_scene: PackedScene
 #para testar vetores
@@ -11,7 +10,8 @@ const JUMP_VELOCITY = -400.0
 func _physics_process(delta: float) -> void:
 	var x :=  Input.get_axis("ui_left", "ui_right")
 	var y :=  Input.get_axis("ui_up", "ui_down")
-	var dir := Vector2(x,y).normalized()
+	var dir := Input.get_vector("ui_left","ui_right","ui_up","ui_down").normalized()
+	#var dir := Vector2(x,y).normalized()
 	
 	#velocity.x = move_toward(velocity.x, dir.x*SPEED, ACCELERATION*delta)
 	#velocity.y = move_toward(velocity.y, dir.y*SPEED, ACCELERATION*delta)
