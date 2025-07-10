@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	velocity.y = move_toward(velocity.y, y*SPEED, ACCELERATION*delta)
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("mouse"):
+	if Input.is_action_just_pressed("Atirar"):
 		shoot()
  
 
@@ -23,12 +23,10 @@ func shoot():
 	var projectile = projectile_scene.instantiate()
 	get_parent().add_child(projectile)
 	
-	projectile.global_position = global_position
 
 	var mouse_pos = get_global_mouse_position()
 	var dir = (mouse_pos - global_position).normalized()
-
-	#projectile.direction = dir
-
-	# Rotaciona o sprite do projétil para apontar na direção correta (opcional)
+	
+	projectile.SetDirection(dir)
+	projectile.SetPosition(global_position + dir*40)
 	projectile.rotation = dir.angle()

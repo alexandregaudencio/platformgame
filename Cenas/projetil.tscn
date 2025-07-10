@@ -1,10 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://ot06w23wiq25"]
+[gd_scene load_steps=3 format=3 uid="uid://wyfaiaa8lgbe"]
+
+[ext_resource type="Script" uid="uid://c2hqhofrpe7vo" path="res://Scripts/projetil.gd" id="1_bb2x1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3a78q"]
 
-[node name="projetil" type="Area2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Projetil" type="RigidBody2D"]
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("1_bb2x1")
+speed = 300
+alvo = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_3a78q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
