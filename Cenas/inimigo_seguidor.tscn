@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://11rc7bvbotjd"]
+
+[ext_resource type="Script" uid="uid://pwd43qp8h4u1" path="res://Scripts/inimigo_seguidor.gd" id="1_oxcjh"]
+[ext_resource type="Texture2D" uid="uid://jcllfwd5r4f6" path="res://Arte/shadow base.png" id="2_rtrhr"]
+[ext_resource type="Texture2D" uid="uid://b507261c5j5tf" path="res://Arte/5Tiled_files/Enemy1.png" id="3_xwbqt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16dlx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16dlx"]
+atlas = ExtResource("3_xwbqt")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4e3a"]
+atlas = ExtResource("3_xwbqt")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_254hr"]
+atlas = ExtResource("3_xwbqt")
+region = Rect2(64, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd8cq"]
+atlas = ExtResource("3_xwbqt")
+region = Rect2(96, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6gs1"]
+atlas = ExtResource("3_xwbqt")
+region = Rect2(128, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gav4s"]
+atlas = ExtResource("3_xwbqt")
+region = Rect2(160, 256, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gav4s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16dlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4e3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_254hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd8cq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6gs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gav4s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="InimigoSeguidor" type="CharacterBody2D" groups=["Inimigos"]]
+scale = Vector2(2, 2)
+motion_mode = 1
+script = ExtResource("1_oxcjh")
+projectile_scene = null
+ACCELERATION = 1000
+SPEED = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_16dlx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, 4)
+scale = Vector2(0.5625, 0.875)
+texture = ExtResource("2_rtrhr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gav4s")
+autoplay = "default"
+frame_progress = 0.556312
