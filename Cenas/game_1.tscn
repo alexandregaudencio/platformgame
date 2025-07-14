@@ -177,7 +177,7 @@ offset_bottom = 40.0
 script = ExtResource("5_svay0")
 Player = NodePath("../../Player")
 
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="CanvasLayer/HUD"]
+[node name="fundo" type="TextureProgressBar" parent="CanvasLayer/HUD"]
 layout_mode = 1
 offset_left = 3.0
 offset_right = 131.0
@@ -189,20 +189,15 @@ texture_progress = ExtResource("5_encla")
 tint_under = Color(0.388942, 0.000106056, 0.390054, 1)
 tint_progress = Color(0.226707, 0.226707, 0.226707, 1)
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/HUD"]
+[node name="Coracoes" type="TextureProgressBar" parent="CanvasLayer/HUD"]
 layout_mode = 1
-offset_left = 2.0
-offset_top = 39.0
-offset_right = 130.0
-offset_bottom = 55.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 129.0
+offset_bottom = 17.0
 scale = Vector2(2, 2)
 max_value = 16.0
 value = 16.0
-texture_under = ExtResource("5_encla")
-texture_over = ExtResource("5_encla")
 texture_progress = ExtResource("5_encla")
-tint_under = Color(0.179386, 0.050944, 0.00668944, 1)
-tint_over = Color(1, 1, 0.243137, 1)
-tint_progress = Color(0.0842944, 0.0190444, 0.0087143, 1)
 
 [connection signal="VidaMudou" from="Player" to="CanvasLayer/HUD" method="_on_player_vida_mudou"]

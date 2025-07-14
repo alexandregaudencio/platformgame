@@ -5,4 +5,4 @@ extends Control
 
 
 func _on_player_vida_mudou(vida: Variant) -> void:
-	$TextureProgressBar.value = vida*2
+	$Coracoes.value = vida*2

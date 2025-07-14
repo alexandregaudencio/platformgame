@@ -21,6 +21,7 @@ func shoot(dir: Vector2, ):
 	projectile.SetPosition(global_position + dir*40)
 	projectile.rotation = dir.angle()
 
+
 func levarDano(dano: int):
 	if dano > vida:
 		vida = 0
@@ -44,6 +45,5 @@ func direcaoPlayer():
 
 func direcao(alvo: Vector2):
 		return (alvo - global_position).normalized()
-
 
 	
