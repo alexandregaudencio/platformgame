@@ -8,6 +8,7 @@ class_name CharacterBase extends CharacterBody2D
 signal VidaMudou(vida)
 signal danoAplicado(dano)
 
+
 func Mover(dir: Vector2, delta: float):
 	velocity = velocity.move_toward(dir*SPEED, ACCELERATION*delta)
 	move_and_slide()
@@ -38,6 +39,7 @@ func AddImpulso(impulso: Vector2):
 	velocity += impulso /massa
 	
 func direcaoPlayer():
+	if !get_node("../Player") : return direcao(position)
 	return direcao((get_node("../Player").position))
 
 func direcao(alvo: Vector2):
