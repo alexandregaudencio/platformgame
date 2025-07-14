@@ -131,7 +131,7 @@ texture = ExtResource("1_svay0")
 5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8, -8, -8, -8, -8)
 
 [sub_resource type="TileSet" id="TileSet_8vb2o"]
-physics_layer_0/collision_layer = 8
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4my6p")
 
 [node name="game 1" type="Node2D"]
@@ -163,9 +163,9 @@ position = Vector2(-144, -41)
 scale = Vector2(0.5, 0.5)
 vida = 8
 
-[node name="InimigoSeguidor" parent="." instance=ExtResource("6_svay0")]
+[node name="InimigoSeguidor" parent="." node_paths=PackedStringArray("alvo") instance=ExtResource("6_svay0")]
 position = Vector2(-152, 40)
-massa = 0.5
+alvo = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -179,9 +179,9 @@ Player = NodePath("../../Player")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/HUD"]
 layout_mode = 1
-offset_right = 128.0
-offset_bottom = 16.0
-scale = Vector2(2, 2)
+anchors_preset = -1
+anchor_right = 3.9
+anchor_bottom = 1.0
 max_value = 16.0
 value = 16.0
 texture_progress = ExtResource("5_encla")

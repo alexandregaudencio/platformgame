@@ -9,4 +9,5 @@ func _process(delta: float) -> void:
 
 func seguir(delta):
 	#position = lerp(position,alvo.position + positionExtra,velocidade*delta)
+	if !alvo: return;
 	position = alvo.position

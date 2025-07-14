@@ -3,10 +3,10 @@ class_name CharacterBase extends CharacterBody2D
 @export var projectile_scene: PackedScene
 @export var ACCELERATION = 2000
 @export var SPEED = 300.0
-@export var vidas = 5
-
-
-
+@export var vida = 5
+@export_range(0.5, 2.0, 0.1) var massa:float  = 1
+signal VidaMudou(vida)
+signal danoAplicado(dano)
 
 func Mover(dir: Vector2, delta: float):
 	velocity = velocity.move_toward(dir*SPEED, ACCELERATION*delta)
@@ -21,16 +21,27 @@ func shoot(dir: Vector2, ):
 	projectile.rotation = dir.angle()
 
 func levarDano(dano: int):
-	if dano > vidas:
-		vidas = 0
+	if dano > vida:
+		vida = 0
 	else:
-		vidas -= dano
-	
-	if(vidas == 0):
+		vida -= dano
+	emit_signal("DanoAplicado",dano)
+	emit_signal("VidaMudou",vida)
+	if(vida == 0):
 		Destruir()
 	
 	
 func Destruir():
 	queue_free()	
-		
+
+func AddImpulso(impulso: Vector2):
+	velocity += impulso /massa
+	
+func direcaoPlayer():
+	return direcao((get_node("../Player").position))
+
+func direcao(alvo: Vector2):
+		return (alvo - global_position).normalized()
+
+
 	

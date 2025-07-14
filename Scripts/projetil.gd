@@ -3,10 +3,6 @@ extends RigidBody2D
 @export var alvo = ""
 var direction: Vector2
 
-
-#func _ready() -> void:
-	#var forward = Vector2.RIGHT.rotated(rotation)
-	#SetDirection(forward)
 	
 func SetDirection( direction:Vector2):
 	self.direction = direction
@@ -23,4 +19,6 @@ func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_inde
 	if body.is_in_group(alvo):
 		if(body is CharacterBase):
 			body.levarDano(1)
+			var impulso = -body.direcaoPlayer()*300
+			body.AddImpulso(impulso)
 	Destruir()
