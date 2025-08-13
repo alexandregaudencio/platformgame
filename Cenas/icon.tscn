@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlefxxv3diedc"]
+
+[ext_resource type="Texture2D" uid="uid://bq7ombdrw42u" path="res://icon.svg" id="1_bouev"]
+[ext_resource type="Script" uid="uid://pwd43qp8h4u1" path="res://Scripts/inimigo_seguidor.gd" id="2_p16q0"]
+
+[node name="Icon" type="Sprite2D"]
+texture = ExtResource("1_bouev")
+script = ExtResource("2_p16q0")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cs6r6ppujp7i6"]
+[gd_scene load_steps=11 format=4 uid="uid://cs6r6ppujp7i6"]
 
 [ext_resource type="Texture2D" uid="uid://thgswn5q663b" path="res://Arte/tilemap.png" id="1_svay0"]
 [ext_resource type="Script" uid="uid://c6x4yops1pdjl" path="res://Scripts/CameraController.gd" id="3_cxdy0"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cnf1hnaabj8pi" path="res://Arte/coracores.png" id="5_encla"]
 [ext_resource type="Script" uid="uid://c7scjrjg70rje" path="res://Scripts/hud.gd" id="5_svay0"]
 [ext_resource type="PackedScene" uid="uid://11rc7bvbotjd" path="res://Cenas/inimigo_seguidor.tscn" id="6_svay0"]
+[ext_resource type="Script" uid="uid://bwnuseooyxqaq" path="res://Scripts/EnemySpawner.gd" id="7_svay0"]
+[ext_resource type="PackedScene" uid="uid://dah58x0hbe5s7" path="res://Cenas/inimigo_seguidor_2.tscn" id="8_4my6p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4my6p"]
 texture = ExtResource("1_svay0")
@@ -199,5 +201,13 @@ scale = Vector2(2, 2)
 max_value = 16.0
 value = 16.0
 texture_progress = ExtResource("5_encla")
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+position = Vector2(65, 160)
+script = ExtResource("7_svay0")
+enemy_scenes = Array[PackedScene]([ExtResource("6_svay0"), ExtResource("8_4my6p")])
+spawn_area = Rect2(0, 0, 1, 300)
+
+[node name="InimigoSeguidor2" parent="." instance=ExtResource("8_4my6p")]
 
 [connection signal="VidaMudou" from="Player" to="CanvasLayer/HUD" method="_on_player_vida_mudou"]

@@ -6,7 +6,7 @@ class_name CharacterBase extends CharacterBody2D
 @export var vida = 5
 @export_range(0.5, 2.0, 0.1) var massa:float  = 1
 signal VidaMudou(vida)
-signal danoAplicado(dano)
+signal DanoAplicado(dano)
 
 
 func Mover(dir: Vector2, delta: float):
@@ -40,8 +40,9 @@ func AddImpulso(impulso: Vector2):
 	velocity += impulso /massa
 	
 func direcaoPlayer():
-	if !get_node("../Player") : return direcao(position)
-	return direcao((get_node("../Player").position))
+	var player = get_node("/root/game 1/Player")
+	if !player: return direcao(position)
+	return direcao(player.position)
 
 func direcao(alvo: Vector2):
 		return (alvo - global_position).normalized()
