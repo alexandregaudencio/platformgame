@@ -202,7 +202,7 @@ texture_progress = ExtResource("5_encla")
 [node name="EnemySpawner" type="Node2D" parent="."]
 position = Vector2(389, 256)
 script = ExtResource("7_svay0")
-enemy_scenes = Array[PackedScene]([ExtResource("6_svay0"), ExtResource("8_4my6p")])
+enemy_scenes = Array[PackedScene]([ExtResource("6_svay0"), ExtResource("8_4my6p"), ExtResource("9_rp5ge")])
 spawn_area = Rect2(0, 0, 1, 300)
 
 [node name="Inimigo Atirador 1" parent="." instance=ExtResource("9_rp5ge")]

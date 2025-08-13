@@ -28,7 +28,6 @@ func AtirarNoJogador():
 	get_tree().create_timer(intervaloTiro).timeout.connect(AtirarNoJogador)
 
 
-
 func AtirarTodasAsDirecoes():
 	var angle_step := TAU / projetilCount
 

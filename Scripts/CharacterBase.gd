@@ -22,8 +22,9 @@ func Mover(dir: Vector2, delta: float):
 
 func shoot(dir: Vector2 ):
 	var projectile = projectile_scene.instantiate()
-	get_parent().add_child(projectile)
 
+	get_tree().get_root().add_child(projectile)
+	
 	projectile.SetDirection(dir)
 	projectile.SetPosition(global_position + dir*40)
 	projectile.rotation = dir.angle()
