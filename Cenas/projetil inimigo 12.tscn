@@ -85,7 +85,7 @@ alvo = "Player"
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_no73n")
 autoplay = "default"
-frame_progress = 0.260989
+frame_progress = 0.579537
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 9

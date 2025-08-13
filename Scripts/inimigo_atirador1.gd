@@ -2,7 +2,7 @@ extends CharacterBase
 
 @export var distanciaMin = 300
 @export var intervaloTiro = 3
-
+@export var projetilCount: int = 10
 func _ready() -> void:	
 	super._ready()
 	AtirarNoJogador()
@@ -24,7 +24,15 @@ func _physics_process(delta: float) -> void:
 
 func AtirarNoJogador():
 	shoot(direcaoPlayer())		
+	#AtirarTodasAsDirecoes()
 	get_tree().create_timer(intervaloTiro).timeout.connect(AtirarNoJogador)
 
 
-		
+
+func AtirarTodasAsDirecoes():
+	var angle_step := TAU / projetilCount
+
+	for i in projetilCount:
+		var angle := i * angle_step
+		var direction := Vector2.RIGHT.rotated(angle)
+		shoot(direction)
