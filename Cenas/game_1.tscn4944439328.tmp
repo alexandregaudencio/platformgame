@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cs6r6ppujp7i6"]
+[gd_scene load_steps=25 format=4 uid="uid://cs6r6ppujp7i6"]
 
 [ext_resource type="Texture2D" uid="uid://thgswn5q663b" path="res://Arte/tilemap.png" id="1_svay0"]
 [ext_resource type="Script" uid="uid://c6x4yops1pdjl" path="res://Scripts/CameraController.gd" id="3_cxdy0"]
@@ -8,7 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://11rc7bvbotjd" path="res://Cenas/inimigo_seguidor.tscn" id="6_svay0"]
 [ext_resource type="Script" uid="uid://bwnuseooyxqaq" path="res://Scripts/EnemySpawner.gd" id="7_svay0"]
 [ext_resource type="PackedScene" uid="uid://dah58x0hbe5s7" path="res://Cenas/inimigo_seguidor_2.tscn" id="8_4my6p"]
-[ext_resource type="PackedScene" uid="uid://bsfylv0w3pdtr" path="res://Cenas/inimigo_atirador_1.tscn" id="9_rp5ge"]
+[ext_resource type="Script" uid="uid://c4onfnkplxc6t" path="res://Scripts/inimigo_seguidor_2.gd" id="9_16dlx"]
+[ext_resource type="PackedScene" uid="uid://bflmyqvja1meu" path="res://Cenas/projetil inimigo 12.tscn" id="10_254hr"]
+[ext_resource type="Texture2D" uid="uid://jcllfwd5r4f6" path="res://Arte/shadow base.png" id="10_n4e3a"]
+[ext_resource type="Texture2D" uid="uid://dj53528ilkcuv" path="res://Arte/5Tiled_files/Enemy4.png" id="11_16dlx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4my6p"]
 texture = ExtResource("1_svay0")
@@ -137,6 +140,74 @@ texture = ExtResource("1_svay0")
 physics_layer_0/collision_layer = 8
 sources/0 = SubResource("TileSetAtlasSource_4my6p")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_16dlx"]
+radius = 3.04138
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4e3a"]
+atlas = ExtResource("11_16dlx")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_254hr"]
+atlas = ExtResource("11_16dlx")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd8cq"]
+atlas = ExtResource("11_16dlx")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6gs1"]
+atlas = ExtResource("11_16dlx")
+region = Rect2(64, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gav4s"]
+atlas = ExtResource("11_16dlx")
+region = Rect2(96, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a2rp"]
+atlas = ExtResource("11_16dlx")
+region = Rect2(128, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rnx6"]
+atlas = ExtResource("11_16dlx")
+region = Rect2(160, 256, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcxhs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4e3a")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_254hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd8cq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6gs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gav4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a2rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rnx6")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oxcjh"]
+radius = 8.01561
+
 [node name="game 1" type="Node2D"]
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
@@ -205,6 +276,33 @@ script = ExtResource("7_svay0")
 enemy_scenes = Array[PackedScene]([ExtResource("6_svay0"), ExtResource("8_4my6p")])
 spawn_area = Rect2(0, 0, 1, 300)
 
-[node name="Inimigo Atirador 1" parent="." instance=ExtResource("9_rp5ge")]
+[node name="Inimigo Atirador 1" type="CharacterBody2D" parent="." groups=["Inimigos"]]
+scale = Vector2(2, 2)
+collision_mask = 9
+motion_mode = 1
+script = ExtResource("9_16dlx")
+projectile_scene = ExtResource("10_254hr")
+SPEED = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inimigo Atirador 1"]
+shape = SubResource("CircleShape2D_16dlx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Inimigo Atirador 1"]
+position = Vector2(2.5, 4.5)
+scale = Vector2(0.5625, 0.875)
+texture = ExtResource("10_n4e3a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Inimigo Atirador 1"]
+sprite_frames = SubResource("SpriteFrames_qcxhs")
+animation = &"Walk"
+autoplay = "Idle"
+frame_progress = 0.649966
+
+[node name="Area2D" type="Area2D" parent="Inimigo Atirador 1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inimigo Atirador 1/Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("CircleShape2D_oxcjh")
 
 [connection signal="VidaMudou" from="Player" to="CanvasLayer/HUD" method="_on_player_vida_mudou"]
+[connection signal="body_entered" from="Inimigo Atirador 1/Area2D" to="Inimigo Atirador 1" method="_on_area_2d_body_entered"]

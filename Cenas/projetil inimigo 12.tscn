@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://bflmyqvja1meu"]
+
+[ext_resource type="Script" uid="uid://c2hqhofrpe7vo" path="res://Scripts/projetil.gd" id="1_q42p3"]
+[ext_resource type="Texture2D" uid="uid://cejl60wvpvrvb" path="res://Arte/All_Fire_Bullet_Pixel_16x16_04.png" id="2_sfyn7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q42p3"]
+atlas = ExtResource("2_sfyn7")
+region = Rect2(256, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfyn7"]
+atlas = ExtResource("2_sfyn7")
+region = Rect2(272, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0tie"]
+atlas = ExtResource("2_sfyn7")
+region = Rect2(288, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7i07"]
+atlas = ExtResource("2_sfyn7")
+region = Rect2(304, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qd14"]
+atlas = ExtResource("2_sfyn7")
+region = Rect2(256, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53jym"]
+atlas = ExtResource("2_sfyn7")
+region = Rect2(272, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dop7p"]
+atlas = ExtResource("2_sfyn7")
+region = Rect2(288, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddi0e"]
+atlas = ExtResource("2_sfyn7")
+region = Rect2(304, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_no73n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q42p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfyn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0tie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7i07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qd14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53jym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dop7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddi0e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3a78q"]
+radius = 6.08276
+
+[node name="Projetil" type="RigidBody2D" groups=["Projetil"]]
+collision_layer = 16
+collision_mask = 159
+mass = 0.01
+gravity_scale = 0.0
+script = ExtResource("1_q42p3")
+speed = 200
+alvo = "Player"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_no73n")
+autoplay = "default"
+frame_progress = 0.260989
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3a78q")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

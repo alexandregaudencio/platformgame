@@ -1,0 +1,107 @@
+[gd_scene load_steps=15 format=3 uid="uid://bsfylv0w3pdtr"]
+
+[ext_resource type="Script" uid="uid://c4onfnkplxc6t" path="res://Scripts/inimigo_atirador1.gd" id="1_vcsyk"]
+[ext_resource type="PackedScene" uid="uid://bflmyqvja1meu" path="res://Cenas/projetil inimigo 12.tscn" id="2_wco6t"]
+[ext_resource type="Texture2D" uid="uid://jcllfwd5r4f6" path="res://Arte/shadow base.png" id="3_dqrsh"]
+[ext_resource type="Texture2D" uid="uid://dj53528ilkcuv" path="res://Arte/5Tiled_files/Enemy4.png" id="4_lqcu3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_16dlx"]
+radius = 3.04138
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4e3a"]
+atlas = ExtResource("4_lqcu3")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_254hr"]
+atlas = ExtResource("4_lqcu3")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd8cq"]
+atlas = ExtResource("4_lqcu3")
+region = Rect2(32, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6gs1"]
+atlas = ExtResource("4_lqcu3")
+region = Rect2(64, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gav4s"]
+atlas = ExtResource("4_lqcu3")
+region = Rect2(96, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a2rp"]
+atlas = ExtResource("4_lqcu3")
+region = Rect2(128, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rnx6"]
+atlas = ExtResource("4_lqcu3")
+region = Rect2(160, 256, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcxhs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4e3a")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_254hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd8cq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6gs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gav4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a2rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rnx6")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oxcjh"]
+radius = 8.01561
+
+[node name="Inimigo Atirador 1" type="CharacterBody2D" groups=["Inimigos"]]
+scale = Vector2(2, 2)
+collision_mask = 9
+motion_mode = 1
+script = ExtResource("1_vcsyk")
+distanciaMin = 200
+projectile_scene = ExtResource("2_wco6t")
+ACCELERATION = 500
+SPEED = 100.0
+massa = 1.7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_16dlx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.5, 4.5)
+scale = Vector2(0.5625, 0.875)
+texture = ExtResource("3_dqrsh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qcxhs")
+animation = &"Walk"
+autoplay = "Idle"
+frame_progress = 0.47046
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("CircleShape2D_oxcjh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -32,3 +32,4 @@ func spawn_enemy():
 	)
 	enemy.position = pos
 	add_child(enemy)
+	
