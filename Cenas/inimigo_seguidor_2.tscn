@@ -61,7 +61,7 @@ animations = [{
 radius = 8.01561
 
 [node name="InimigoSeguidor2" type="CharacterBody2D" groups=["Inimigos"]]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_7ahhf")

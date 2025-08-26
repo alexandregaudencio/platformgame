@@ -19,6 +19,6 @@ func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_inde
 	if body.is_in_group(alvo):
 		if(body is CharacterBase):
 			body.levarDano(1)
-			var impulso = -body.direcaoPlayer()*300
+			var impulso = -body.direcao(position)*300
 			body.AddImpulso(impulso)
 	Destruir()

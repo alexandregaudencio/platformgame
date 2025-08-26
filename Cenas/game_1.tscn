@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=4 uid="uid://cs6r6ppujp7i6"]
+[gd_scene load_steps=13 format=4 uid="uid://cs6r6ppujp7i6"]
 
+[ext_resource type="Script" uid="uid://cwdt3hax4afrw" path="res://Scripts/GameManager.gd" id="1_oodsw"]
 [ext_resource type="Texture2D" uid="uid://thgswn5q663b" path="res://Arte/tilemap.png" id="1_svay0"]
 [ext_resource type="Script" uid="uid://c6x4yops1pdjl" path="res://Scripts/CameraController.gd" id="3_cxdy0"]
 [ext_resource type="PackedScene" uid="uid://c60xim03ecxgd" path="res://Cenas/player.tscn" id="5_8vb2o"]
@@ -137,7 +138,10 @@ texture = ExtResource("1_svay0")
 physics_layer_0/collision_layer = 8
 sources/0 = SubResource("TileSetAtlasSource_4my6p")
 
-[node name="game 1" type="Node2D"]
+[node name="game 1" type="Node2D" node_paths=PackedStringArray("scoreLabel", "nivelLabel")]
+script = ExtResource("1_oodsw")
+scoreLabel = NodePath("CanvasLayer/HUD/Score")
+nivelLabel = NodePath("CanvasLayer/HUD/Nivel")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 position = Vector2(8, 3)
@@ -199,6 +203,36 @@ max_value = 16.0
 value = 16.0
 texture_progress = ExtResource("5_encla")
 
+[node name="Nivel" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 6.073
+anchor_bottom = 4.003
+offset_left = 14.0
+offset_top = 24.0
+offset_right = -73.92
+offset_bottom = -87.12
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Level 1"
+
+[node name="Score" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 6.073
+anchor_bottom = 4.003
+offset_left = 14.0
+offset_top = 53.0
+offset_right = -73.92
+offset_bottom = -57.12
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "0000"
+
 [node name="EnemySpawner" type="Node2D" parent="."]
 position = Vector2(389, 256)
 script = ExtResource("7_svay0")
@@ -207,4 +241,5 @@ spawn_area = Rect2(0, 0, 1, 300)
 
 [node name="Inimigo Atirador 1" parent="." instance=ExtResource("9_rp5ge")]
 
+[connection signal="DanoAplicado" from="Player" to="." method="_on_player_dano_aplicado"]
 [connection signal="VidaMudou" from="Player" to="CanvasLayer/HUD" method="_on_player_vida_mudou"]

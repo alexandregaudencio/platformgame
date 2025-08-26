@@ -1,4 +1,4 @@
-extends CharacterBase
+class_name Player extends CharacterBase
 
 var moveDir = Vector2(0,0)
 var mouseDir = Vector2(0,0)
