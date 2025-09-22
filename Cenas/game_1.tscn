@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=4 uid="uid://cs6r6ppujp7i6"]
+[gd_scene load_steps=13 format=4 uid="uid://cs6r6ppujp7i6"]
 
+[ext_resource type="Script" uid="uid://6uc07de1jqqd" path="res://Scripts/VFXManager.gd" id="1_oodsw"]
 [ext_resource type="Texture2D" uid="uid://thgswn5q663b" path="res://Arte/tilemap.png" id="1_svay0"]
 [ext_resource type="Script" uid="uid://c6x4yops1pdjl" path="res://Scripts/CameraController.gd" id="3_cxdy0"]
 [ext_resource type="PackedScene" uid="uid://c60xim03ecxgd" path="res://Cenas/player.tscn" id="5_8vb2o"]
@@ -138,6 +139,7 @@ physics_layer_0/collision_layer = 8
 sources/0 = SubResource("TileSetAtlasSource_4my6p")
 
 [node name="game 1" type="Node2D"]
+script = ExtResource("1_oodsw")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 position = Vector2(8, 3)
@@ -164,7 +166,10 @@ alvo = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("5_8vb2o")]
 position = Vector2(-144, -41)
 scale = Vector2(0.5, 0.5)
+ACCELERATION = null
+SPEED = null
 vida = 8
+massa = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

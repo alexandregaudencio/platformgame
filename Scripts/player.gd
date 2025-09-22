@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 	Mover(moveDir, delta)
 	
 	if Input.is_action_just_pressed("Atirar"):
+		VfxManager.play(0,global_position)	
 		var mouse_pos = get_global_mouse_position()
 		mouseDir = (mouse_pos - global_position).normalized()
 		shoot(mouseDir)
