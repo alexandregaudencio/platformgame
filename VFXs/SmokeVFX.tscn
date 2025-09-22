@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnceb6toqbm1t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1jmsp"]
+load_path = "res://.godot/imported/FX001_01.png-c6da9799ece3b21cd0f1d63344ba042c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2u2vt"]
+load_path = "res://.godot/imported/FX001_02.png-15df6fcac377881b3f32f422a47ff773.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qupyv"]
+load_path = "res://.godot/imported/FX001_03.png-24be1ba3e684df4c1175301b3db591f7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_by4mt"]
+load_path = "res://.godot/imported/FX001_04.png-9b3d22db92acde2fa19d794d0fa0410a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_01x4g"]
+load_path = "res://.godot/imported/FX001_05.png-4a4557e0be4176d1a6d9327b5718907c.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcxhs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_1jmsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_2u2vt")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_qupyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_by4mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_01x4g")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="SmokeVFX" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_qcxhs")
+autoplay = "default"
+frame = 5
+frame_progress = 1.0

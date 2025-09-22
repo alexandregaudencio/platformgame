@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = false
 
 func _physics_process(delta: float) -> void:
-
 	if Distancia(player) > distanciaMin:
 		Mover(direcaoPlayer(), delta)
 		PlayAnimation("Walk")

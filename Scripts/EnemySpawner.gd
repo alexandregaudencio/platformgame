@@ -27,4 +27,5 @@ func spawn_enemy():
 	)
 	enemy.position = pos
 	add_child(enemy)
+	VfxManager.play(2,pos)
 	

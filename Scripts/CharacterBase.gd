@@ -11,6 +11,8 @@ signal DanoAplicado(dano)
 var player: Node2D
 func _ready() -> void:
 	player = get_node("/root/game 1/Player")
+	VfxManager.play(2,global_position)
+
 
 func PlayAnimation(animation):
 	if $AnimatedSprite2D.animation == animation: return
@@ -29,6 +31,7 @@ func shoot(dir: Vector2 ):
 	projectile.SetPosition(global_position + dir*40)
 	projectile.rotation = dir.angle()
 
+
 func levarDano(dano: int):
 	if dano > vida:
 		vida = 0
@@ -41,6 +44,7 @@ func levarDano(dano: int):
 	
 	
 func Destruir():
+	VfxManager.play(0,global_position)
 	queue_free()	
 
 func AddImpulso(impulso: Vector2):

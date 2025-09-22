@@ -10,9 +10,12 @@ func SetDirection( direction:Vector2):
 	
 func SetPosition(position:Vector2):
 	self.position = position
+	VfxManager.play(3,global_position,0)	
+
 	
 
 func Destruir():
+	VfxManager.play(1,global_position)
 	queue_free()
 
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:

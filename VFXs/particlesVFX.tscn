@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bj6452uhftfmc"]
+
+[ext_resource type="Texture2D" uid="uid://c5ykavacwjdgk" path="res://VFXs/particles.png" id="1_ub6my"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtq58"]
+atlas = ExtResource("1_ub6my")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlf7o"]
+atlas = ExtResource("1_ub6my")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evew7"]
+atlas = ExtResource("1_ub6my")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ubnlf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtq58")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlf7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evew7")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 14.0
+}]
+
+[node name="particles" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ubnlf")
+autoplay = "default"
+frame = 3
+frame_progress = 1.0

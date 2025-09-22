@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://cx88r4t8hm4c4"]
+
+[ext_resource type="Texture2D" uid="uid://dbmn3vkcu5qtb" path="res://VFXs/spark.png" id="1_7m427"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m427"]
+atlas = ExtResource("1_7m427")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d7us"]
+atlas = ExtResource("1_7m427")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcf21"]
+atlas = ExtResource("1_7m427")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmmr2"]
+atlas = ExtResource("1_7m427")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt1os"]
+atlas = ExtResource("1_7m427")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cdj0"]
+atlas = ExtResource("1_7m427")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f0jm"]
+atlas = ExtResource("1_7m427")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a87ia"]
+atlas = ExtResource("1_7m427")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7uqin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m427")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d7us")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcf21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmmr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt1os")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cdj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f0jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a87ia")
+}],
+"loop": false,
+"name": &"default",
+"speed": 13.0
+}]
+
+[node name="Sparks" type="AnimatedSprite2D"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_7uqin")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0

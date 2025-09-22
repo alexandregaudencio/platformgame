@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://crl4xt0snoklc"]
+
+[ext_resource type="Texture2D" uid="uid://dtxsdd1wgckca" path="res://VFXs/impact.png" id="1_1sy72"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p45v4"]
+atlas = ExtResource("1_1sy72")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvaq6"]
+atlas = ExtResource("1_1sy72")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ere4u"]
+atlas = ExtResource("1_1sy72")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nrfx"]
+atlas = ExtResource("1_1sy72")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnbma"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p45v4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvaq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ere4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nrfx")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Impact" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_vnbma")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
