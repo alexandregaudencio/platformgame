@@ -7,9 +7,10 @@ class_name CharacterBase extends CharacterBody2D
 @export_range(0.5, 2.0, 0.1) var massa:float  = 1
 signal VidaMudou(vida)
 signal DanoAplicado(dano)
-
+var vidaMax = 5
 var player: Node2D
 func _ready() -> void:
+	vidaMax = vida
 	player = get_node("/root/game 1/Player")
 	VfxManager.play(2,global_position)
 
@@ -26,7 +27,6 @@ func shoot(dir: Vector2 ):
 	var projectile = projectile_scene.instantiate()
 
 	get_tree().get_root().add_child(projectile)
-	
 	projectile.SetDirection(dir)
 	projectile.SetPosition(global_position + dir*40)
 	projectile.rotation = dir.angle()
@@ -37,14 +37,15 @@ func levarDano(dano: int):
 		vida = 0
 	else:
 		vida -= dano
-	emit_signal("DanoAplicado",dano)
 	emit_signal("VidaMudou",vida)
 	if(vida == 0):
+		
 		Destruir()
 	
 	
 func Destruir():
-	VfxManager.play(0,global_position)
+	DadosJogador.EmitirPontos(vidaMax)
+	VfxManager.play(0,global_position,0, get_node("/root/game 1"))
 	queue_free()	
 
 func AddImpulso(impulso: Vector2):

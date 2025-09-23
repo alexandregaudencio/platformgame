@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://deqqqgkfi83qq"
+path="res://.godot/imported/sfx_shot Inimigo.ogg-b5631a2720ca39783804aab72ca39d02.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/sfx_shot Inimigo.ogg"
+dest_files=["res://.godot/imported/sfx_shot Inimigo.ogg-b5631a2720ca39783804aab72ca39d02.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

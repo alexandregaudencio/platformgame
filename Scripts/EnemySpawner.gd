@@ -3,7 +3,8 @@ extends Node2D
 @export var Enemies_inicial: int = 1
 @export var time_between_waves: float = 5.0
 @export var max_enemies_per_wave: int = 10
-@export var spawn_area: Rect2 = Rect2(Vector2.ZERO, Vector2(20, 200))
+@export_range(0.1, 0.5,0.1) var spawn_interval = 0.25
+@export var spawn_area: Rect2 = Rect2(Vector2(0,0), Vector2(100, 100))
 var wave_number := 1
 
 func _ready():
@@ -13,19 +14,20 @@ func start_waves():
 	get_tree().create_timer(time_between_waves).timeout.connect(start_waves)
 func spawn_wave():
 	for i in wave_number:
+		await get_tree().create_timer(spawn_interval).timeout
 		spawn_enemy()	
 	if Enemies_inicial < max_enemies_per_wave:
 		wave_number += 1
 
 func spawn_enemy():
 	var randi = randi() % enemy_scenes.size()
-	print(randi)
 	var enemy = enemy_scenes[randi].instantiate()
 	var pos = Vector2(
 		randf_range(spawn_area.position.x, spawn_area.position.x + spawn_area.size.x),
 		randf_range(spawn_area.position.y, spawn_area.position.y + spawn_area.size.y)
 	)
-	enemy.position = pos
-	add_child(enemy)
-	VfxManager.play(2,pos)
-	
+	enemy.global_position = pos
+	add_child(enemy)	
+
+func _draw() -> void:
+	draw_rect(spawn_area, Color(0, 0, 1), false)

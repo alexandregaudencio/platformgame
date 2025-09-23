@@ -2,7 +2,7 @@ class_name Player extends CharacterBase
 
 var moveDir = Vector2(0,0)
 var mouseDir = Vector2(0,0)
-
+@export var shotAudio: AudioStream
 #Shader blink
 #https://youtube.com/shorts/TbRsdlfaTWs?lc=UgyUP5crKatZHd1aYld4AaABAg&si=Yd0UiXycq4bavOQB
 
@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 		var mouse_pos = get_global_mouse_position()
 		mouseDir = (mouse_pos - global_position).normalized()
 		shoot(mouseDir)
+		AudioManager.play_sfx(shotAudio)
  
 
 func updateSpriteFlip():

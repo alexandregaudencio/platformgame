@@ -35,6 +35,7 @@ animations = [{
 }]
 
 [node name="particles" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ubnlf")
 autoplay = "default"
 frame = 3

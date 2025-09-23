@@ -1,14 +1,13 @@
-[gd_scene load_steps=14 format=4 uid="uid://cs6r6ppujp7i6"]
+[gd_scene load_steps=13 format=4 uid="uid://cs6r6ppujp7i6"]
 
-[ext_resource type="Script" uid="uid://duv6k02iy50eq" path="res://GameManager.gd" id="1_oodsw"]
+[ext_resource type="Script" uid="uid://cwdt3hax4afrw" path="res://Scripts/GameManager.gd" id="1_oodsw"]
 [ext_resource type="Texture2D" uid="uid://thgswn5q663b" path="res://Arte/tilemap.png" id="1_svay0"]
 [ext_resource type="Script" uid="uid://c6x4yops1pdjl" path="res://Scripts/CameraController.gd" id="3_cxdy0"]
 [ext_resource type="PackedScene" uid="uid://c60xim03ecxgd" path="res://Cenas/player.tscn" id="5_8vb2o"]
 [ext_resource type="Texture2D" uid="uid://cnf1hnaabj8pi" path="res://Arte/coracores.png" id="5_encla"]
 [ext_resource type="Script" uid="uid://c7scjrjg70rje" path="res://Scripts/hud.gd" id="5_svay0"]
-[ext_resource type="AudioStream" uid="uid://deqqqgkfi83qq" path="res://Sounds/sfx_shot Inimigo.ogg" id="6_n4e3a"]
 [ext_resource type="PackedScene" uid="uid://11rc7bvbotjd" path="res://Cenas/inimigo_seguidor.tscn" id="6_svay0"]
-[ext_resource type="Script" uid="uid://cnaev6xlwgsg3" path="res://Scripts/EnemySpawner.gd" id="7_svay0"]
+[ext_resource type="Script" uid="uid://bwnuseooyxqaq" path="res://Scripts/EnemySpawner.gd" id="7_svay0"]
 [ext_resource type="PackedScene" uid="uid://dah58x0hbe5s7" path="res://Cenas/inimigo_seguidor_2.tscn" id="8_4my6p"]
 [ext_resource type="PackedScene" uid="uid://bsfylv0w3pdtr" path="res://Cenas/inimigo_atirador_1.tscn" id="9_rp5ge"]
 
@@ -169,7 +168,6 @@ alvo = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("5_8vb2o")]
 position = Vector2(-144, -41)
 scale = Vector2(0.5, 0.5)
-shotAudio = ExtResource("6_n4e3a")
 vida = 8
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

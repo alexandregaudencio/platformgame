@@ -24,4 +24,6 @@ func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_inde
 			body.levarDano(1)
 			var impulso = -body.direcao(position)*300
 			body.AddImpulso(impulso)
+			if alvo == "Inimigos":
+				DadosJogador.EmitirPontos(1)
 	Destruir()

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://v7m2iy7yebwe"
+path="res://.godot/imported/sfx_death inimigo.ogg-a1b55bff3d13769655f4a77fff9d38c0.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/sfx_death inimigo.ogg"
+dest_files=["res://.godot/imported/sfx_death inimigo.ogg-a1b55bff3d13769655f4a77fff9d38c0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

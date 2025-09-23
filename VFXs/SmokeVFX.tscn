@@ -1,37 +1,28 @@
 [gd_scene load_steps=7 format=3 uid="uid://dnceb6toqbm1t"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1jmsp"]
-load_path = "res://.godot/imported/FX001_01.png-c6da9799ece3b21cd0f1d63344ba042c.ctex"
+[ext_resource type="Texture2D" uid="uid://cpr1ddsoibaek" path="res://VFXs/FX001_01.png" id="1_wrlwy"]
+[ext_resource type="Texture2D" uid="uid://dx67mdu4wal34" path="res://VFXs/FX001_02.png" id="2_r4nyf"]
+[ext_resource type="Texture2D" uid="uid://qcolijhrysod" path="res://VFXs/FX001_03.png" id="3_iofj3"]
+[ext_resource type="Texture2D" uid="uid://cbixh4ilhmqry" path="res://VFXs/FX001_04.png" id="4_cxxgj"]
+[ext_resource type="Texture2D" uid="uid://cj4sidi1wohqq" path="res://VFXs/FX001_05.png" id="5_wf6em"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2u2vt"]
-load_path = "res://.godot/imported/FX001_02.png-15df6fcac377881b3f32f422a47ff773.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qupyv"]
-load_path = "res://.godot/imported/FX001_03.png-24be1ba3e684df4c1175301b3db591f7.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_by4mt"]
-load_path = "res://.godot/imported/FX001_04.png-9b3d22db92acde2fa19d794d0fa0410a.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_01x4g"]
-load_path = "res://.godot/imported/FX001_05.png-4a4557e0be4176d1a6d9327b5718907c.ctex"
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qcxhs"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_m6p06"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_1jmsp")
+"texture": ExtResource("1_wrlwy")
 }, {
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_2u2vt")
+"texture": ExtResource("2_r4nyf")
 }, {
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_qupyv")
+"texture": ExtResource("3_iofj3")
 }, {
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_by4mt")
+"texture": ExtResource("4_cxxgj")
 }, {
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_01x4g")
+"texture": ExtResource("5_wf6em")
 }, {
 "duration": 1.0,
 "texture": null
@@ -43,7 +34,7 @@ animations = [{
 
 [node name="SmokeVFX" type="AnimatedSprite2D"]
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_qcxhs")
+sprite_frames = SubResource("SpriteFrames_m6p06")
 autoplay = "default"
 frame = 5
 frame_progress = 1.0

@@ -4,15 +4,14 @@ extends Node2D
 @export var nivelLabel: Label
 var nivel:int = 1
 var scorePoints = 0
+@export var LevelUpAudio: AudioStream
 
 
 func _ready() -> void:
-	nivel = 1
-	scorePoints = 0
+	DadosJogador.connect("Pontos", Callable(self, "_on_PontosMudou"))
 
-
-func _on_player_dano_aplicado(dano: Variant) -> void:
-	scorePoints += dano*(10*nivel)
+func _on_PontosMudou(pontos: int) -> void:
+	scorePoints += pontos*(10*nivel)
 	scoreLabel.text =  str(scorePoints)
 	AtualizarNivel()
 	
@@ -22,5 +21,6 @@ func AtualizarNivel():
 	if(scorePoints >= pontuacalProximoNivel):
 		nivel+=1
 		nivelLabel.text = "Level "+str(nivel)
+		AudioManager.play_sfx(LevelUpAudio)
 		
 	
