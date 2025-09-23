@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://c60xim03ecxgd"]
+[gd_scene load_steps=19 format=3 uid="uid://c60xim03ecxgd"]
 
 [ext_resource type="Script" uid="uid://de6ia7wy5aqjf" path="res://Scripts/player.gd" id="1_yuqgu"]
+[ext_resource type="AudioStream" uid="uid://bw61lvwotdsfv" path="res://Sounds/sfx_hurt.ogg" id="2_8vhvd"]
 [ext_resource type="PackedScene" uid="uid://wyfaiaa8lgbe" path="res://Cenas/projetil.tscn" id="2_jx05c"]
 [ext_resource type="Texture2D" uid="uid://cebshf7okuwhb" path="res://Arte/5Tiled_files/Character3.png" id="3_yuqgu"]
 [ext_resource type="Texture2D" uid="uid://cq24gp4c3wg74" path="res://Arte/gun.png" id="4_e2nbm"]
@@ -101,6 +102,7 @@ floor_stop_on_slope = false
 floor_block_on_wall = false
 platform_floor_layers = 0
 script = ExtResource("1_yuqgu")
+shotAudio = ExtResource("2_8vhvd")
 projectile_scene = ExtResource("2_jx05c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

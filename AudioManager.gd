@@ -78,7 +78,7 @@ func play_Music(stream: AudioStream, loop: bool = true, crossfade_time: float = 
 	var next_idx := (_current_music_idx + 1) % 2
 	var next_p := _music_players[next_idx]
 	next_p.stream = stream
-	next_p.loop_mode = loop
+	#next_p.loop_mode = loop
 	next_p.volume_db = -80.0 # começar silenciado
 	next_p.stream_paused = false
 	next_p.play()

@@ -5,10 +5,12 @@ extends Node2D
 var nivel:int = 1
 var scorePoints = 0
 @export var LevelUpAudio: AudioStream
+@export var music: AudioStream
 
 
 func _ready() -> void:
 	DadosJogador.connect("Pontos", Callable(self, "_on_PontosMudou"))
+	AudioManager.play_Music(music)
 
 func _on_PontosMudou(pontos: int) -> void:
 	scorePoints += pontos*(10*nivel)

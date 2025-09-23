@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://cs6r6ppujp7i6"]
+[gd_scene load_steps=16 format=4 uid="uid://cs6r6ppujp7i6"]
 
 [ext_resource type="Script" uid="uid://duv6k02iy50eq" path="res://GameManager.gd" id="1_oodsw"]
 [ext_resource type="Texture2D" uid="uid://thgswn5q663b" path="res://Arte/tilemap.png" id="1_svay0"]
+[ext_resource type="AudioStream" uid="uid://bt7opiv6a1twf" path="res://Sounds/sfx_coin.ogg" id="2_n4e3a"]
+[ext_resource type="AudioStream" uid="uid://dunru3sg1fwcb" path="res://Sounds/Space.mp3" id="3_254hr"]
 [ext_resource type="Script" uid="uid://c6x4yops1pdjl" path="res://Scripts/CameraController.gd" id="3_cxdy0"]
 [ext_resource type="PackedScene" uid="uid://c60xim03ecxgd" path="res://Cenas/player.tscn" id="5_8vb2o"]
 [ext_resource type="Texture2D" uid="uid://cnf1hnaabj8pi" path="res://Arte/coracores.png" id="5_encla"]
@@ -143,6 +145,8 @@ sources/0 = SubResource("TileSetAtlasSource_4my6p")
 script = ExtResource("1_oodsw")
 scoreLabel = NodePath("CanvasLayer/HUD/Score")
 nivelLabel = NodePath("CanvasLayer/HUD/Nivel")
+LevelUpAudio = ExtResource("2_n4e3a")
+music = ExtResource("3_254hr")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 position = Vector2(7, 3)
